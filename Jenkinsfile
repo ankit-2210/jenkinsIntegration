@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ankit-2210/jenkinsIntegration.git'
+                git branch: 'main', url: 'https://github.com/ankit-2210/jenkinsIntegration.git'
             }
         }
 
