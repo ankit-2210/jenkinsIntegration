@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "jenkins-springboot:latest"
+        IMAGE_NAME = "jenkins-springboot"
         CONTAINER_NAME = "jenkins-app"
         PORT = "9090"
     }
