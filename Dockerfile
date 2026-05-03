@@ -19,10 +19,10 @@ FROM eclipse-temurin:21-jdk-jammy
 
 WORKDIR /app
 
-#Copu the build JAR from the build stage
+#Copy the build JAR from the build stage
 COPY --from=build /build/target/jenkins-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 9090
 
 # Run app
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
