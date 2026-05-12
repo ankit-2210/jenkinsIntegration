@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     @GetMapping
     public String HomeControllerHandler(){
-        return "Jenkins microservices for integration.git intregate with jenkins via github";
+        return "Jenkins microservices for integration.git integrate with jenkins via github ... CI/CD pipeline through Github Actions";
     }
 
 }
