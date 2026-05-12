@@ -35,12 +35,12 @@ jobs:
     # Build Docker Image
     - name: Build Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/jenkins-springboot:latest .
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/jenkins-springboot:latest .
 
     # Push Docker Image
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/jenkins-springboot:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/jenkins-springboot:latest
 
     # Deploy on AWS EC2
     - name: Deploy to EC2
@@ -52,9 +52,9 @@ jobs:
         script: |
           docker stop springboot-app || true
           docker rm springboot-app || true
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/jenkins-springboot:latest || true
-          docker pull ${{ secrets.DOCKER_USERNAME }}/jenkins-springboot:latest
+          docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/jenkins-springboot:latest || true
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/jenkins-springboot:latest
           docker run -d \
             --name springboot-app \
             -p 9090:9090 \
-            ${{ secrets.DOCKER_USERNAME }}/jenkins-springboot:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/jenkins-springboot:latest
